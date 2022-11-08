@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from './Button';
 import styles from '../styles/ToDoFooter.module.css';
+import { useAppSelector } from '../store/hooks';
 
-type Props = {
-  item: number
-};
+export default function ToDoFooter() {
+  const tasks = useAppSelector((state) => state.sliceTasks.items);
+  const [item, setItem] = useState<number>(0);
 
-export default function ToDoFooter({item = 0}: Props) {
+  useEffect(() => {
+    setItem(tasks.filter((e) => !e.done).length);
+  }, [tasks])
+
   return (
     <div className={styles.footer}>
       <span className={styles.items}>{item} items left</span>

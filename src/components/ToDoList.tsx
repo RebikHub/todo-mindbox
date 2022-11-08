@@ -1,25 +1,17 @@
 import React from 'react';
+import { useAppSelector } from '../store/hooks';
 import styles from '../styles/ToDoList.module.css';
 import ToDoItem from './ToDoItem';
 
-
-const tasks = [
-  {
-    text: 'Do it task',
-    done: false
-  },
-  {
-    text: 'Task is Done!',
-    done: true
-  }
-]
-
-
 export default function ToDoList() {
+  const tasks = useAppSelector((state) => state.sliceTasks.items);
+  const drop = useAppSelector((state) => state.sliceDrop.drop);
+
+
   return (
-    <ul>
-      {tasks.map((e) => (
-        <li className={styles.item}>
+    <ul className={drop ? '' : styles.hidden}>
+      {tasks.map((e, i) => (
+        <li className={styles.item} key={i}>
           <ToDoItem item={e}/>
         </li>
       ))}

@@ -3,4 +3,4 @@ export interface IItem {
   done: boolean;
 };
 
-export type ITasks = IItem[];
+export type Tasks = IItem[];
