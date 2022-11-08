@@ -9,3 +9,10 @@
   color: #e9d9d8;
   font-size: 60px;
 }
+
+.container {
+  width: 768px;
+  background-color: #fefefe;
+  margin: auto;
+  filter: drop-shadow(0 0 6.5px rgba(11, 12, 12, 0.15));
+}
