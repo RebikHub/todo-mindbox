@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
-import { addTask } from '../store/sliceTasks';
+import { showAll } from '../store/sliceSort';
+import { writeStorageToStore } from '../store/sliceTasks';
 import styles from '../styles/App.module.css';
 import DropList from './DropList';
 import ToDoFooter from './ToDoFooter';
@@ -13,17 +14,17 @@ export default function App() {
 
   useEffect(() => {
     const storage = localStorage.getItem('listItems') || '';
-    console.log(JSON.parse(storage));
     
     if (storage) {
-      dispatch(addTask(JSON.parse(storage)));
+      dispatch(writeStorageToStore(JSON.parse(storage)));
     };
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
+    dispatch(showAll(list));
     localStorage.removeItem('listItems');
     localStorage.setItem('listItems', JSON.stringify(list));
-  }, [list]);
+  }, [dispatch, list]);
 
   return (
     <div className={styles.App}>

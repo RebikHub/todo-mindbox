@@ -14,10 +14,10 @@ export default function ToDoFooter() {
   return (
     <div className={styles.footer}>
       <span className={styles.items}>{item} items left</span>
-      <Button>All</Button>
-      <Button>Active</Button>
-      <Button>Completed</Button>
-      <Button>Clear completed</Button>
+      <Button text={'All'}/>
+      <Button text={'Active'}/>
+      <Button text={'Completed'}/>
+      <Button text={'Clear completed'}/>
     </div>
   )
 }

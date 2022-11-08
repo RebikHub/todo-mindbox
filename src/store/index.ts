@@ -1,3 +1,4 @@
+import sliceSort from './sliceSort';
 import sliceDrop from './sliceDrop';
 import sliceTasks from './sliceTasks';
 import { configureStore } from "@reduxjs/toolkit";
@@ -5,7 +6,8 @@ import { configureStore } from "@reduxjs/toolkit";
 export const store = configureStore({
   reducer: {
     sliceTasks,
-    sliceDrop
+    sliceDrop,
+    sliceSort
   }
 });
 

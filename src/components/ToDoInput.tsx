@@ -1,5 +1,6 @@
 import React, { ChangeEvent, KeyboardEvent, ReactNode, useState } from 'react';
 import { useAppDispatch } from '../store/hooks';
+import { statusDrop } from '../store/sliceDrop';
 import { addTask } from '../store/sliceTasks';
 import styles from '../styles/ToDoInput.module.css';
 
@@ -18,7 +19,8 @@ export default function ToDoInput({children}: Props) {
         done: false,
       }));
       setInput('');
-    };
+      dispatch(statusDrop(true));
+    }; 
   };
 
   return (

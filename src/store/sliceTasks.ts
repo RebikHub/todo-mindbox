@@ -1,9 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IItem, Tasks } from "../interfaces/interfaces";
-
-type Items = {
-  items: Tasks
-};
+import { IItem, Items, Tasks } from "../interfaces/interfaces";
 
 const initialState: Items = {
   items: [
@@ -23,18 +19,19 @@ export const sliceTasks = createSlice({
   initialState,
   reducers: {
     writeStorageToStore: (state, actions: PayloadAction<Tasks>) => {
-      stat
+      state.items = [...actions.payload];
     },
     addTask: (state, actions: PayloadAction<IItem>) => {
       state.items = [...state.items, actions.payload];
     },
     clearCompletedTasks: (state) => {
-      state.items.filter((e) => e.done);
+      state.items = [...state.items.filter((e) => !e.done)];
     }
   }
 });
 
 export const {
+  writeStorageToStore,
   addTask,
   clearCompletedTasks
 } = sliceTasks.actions;

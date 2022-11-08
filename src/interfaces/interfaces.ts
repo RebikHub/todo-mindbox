@@ -4,3 +4,7 @@ export interface IItem {
 };
 
 export type Tasks = IItem[];
+
+export type Items = {
+  items: Tasks
+};
