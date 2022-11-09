@@ -1,3 +1,4 @@
+import { nanoid } from '@reduxjs/toolkit';
 import React, { ChangeEvent, KeyboardEvent, ReactNode, useState } from 'react';
 import { useAppDispatch } from '../store/hooks';
 import { statusDrop } from '../store/sliceDrop';
@@ -17,6 +18,7 @@ export default function ToDoInput({children}: Props) {
       dispatch(addTask({
         text: input.trim(),
         done: false,
+        id: nanoid()
       }));
       setInput('');
       dispatch(statusDrop(true));

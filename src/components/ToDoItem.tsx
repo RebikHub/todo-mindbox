@@ -13,7 +13,7 @@ export default function ToDoItem({item}: Props) {
 
   function checkTask() {
     dispatch(editTask({
-      text: item.text,
+      ...item,
       done: !item.done,
     }));
   };

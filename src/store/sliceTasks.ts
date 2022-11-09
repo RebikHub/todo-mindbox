@@ -5,11 +5,13 @@ const initialState: Items = {
   items: [
     {
       text: 'Do it task',
-      done: false
+      done: false,
+      id: '1'
     },
     {
       text: 'Task is Done!',
-      done: true
+      done: true,
+      id: '2'
     }
   ]
 };
@@ -22,7 +24,7 @@ export const sliceTasks = createSlice({
       state.items = [...actions.payload];
     },
     addTask: (state, actions: PayloadAction<IItem>) => {
-      if (!state.items.find((e) => e.text === actions.payload.text)) {
+      if (!state.items.find((e) => e.id === actions.payload.id)) {
         state.items = [...state.items, actions.payload];
       };
     },
@@ -31,7 +33,7 @@ export const sliceTasks = createSlice({
     },
     editTask: (state, actions: PayloadAction<IItem>) => {
       state.items.map((e) => {
-        if (e.text === actions.payload.text) {
+        if (e.id === actions.payload.id) {
           e.done = actions.payload.done;
         };
         return e;

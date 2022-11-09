@@ -9,8 +9,8 @@ export default function ToDoList() {
 
   return (
     <ul className={drop ? '' : styles.hidden}>
-      {sortList.map((e, i) => (
-        <li className={styles.item} key={i}>
+      {sortList.map((e) => (
+        <li className={styles.item} key={e.id}>
           <ToDoItem item={e}/>
         </li>
       ))}
