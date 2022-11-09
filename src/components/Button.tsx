@@ -1,5 +1,6 @@
 import React from 'react';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
+import { statusDrop } from '../store/sliceDrop';
 import { showAll, sortActive, sortCompleted } from '../store/sliceSort';
 import { clearCompletedTasks } from '../store/sliceTasks';
 import styles from '../styles/Button.module.css';
@@ -13,7 +14,7 @@ export default function Button({text}: Props) {
   const itemsList = useAppSelector((state) => state.sliceTasks.items);
 
   function handleClickButton() {
-    
+    dispatch(statusDrop(true));
     switch (text) {
       case 'All':
         dispatch(showAll(itemsList));
@@ -27,9 +28,8 @@ export default function Button({text}: Props) {
       case 'Clear completed':
         dispatch(clearCompletedTasks());
         break;
-    }
-    
-  }
+    };
+  };
 
   return (
     <button className={styles.button} type='button' onClick={handleClickButton}>

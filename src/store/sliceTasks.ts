@@ -22,10 +22,20 @@ export const sliceTasks = createSlice({
       state.items = [...actions.payload];
     },
     addTask: (state, actions: PayloadAction<IItem>) => {
-      state.items = [...state.items, actions.payload];
+      if (!state.items.find((e) => e.text === actions.payload.text)) {
+        state.items = [...state.items, actions.payload];
+      };
     },
     clearCompletedTasks: (state) => {
       state.items = [...state.items.filter((e) => !e.done)];
+    },
+    editTask: (state, actions: PayloadAction<IItem>) => {
+      state.items.map((e) => {
+        if (e.text === actions.payload.text) {
+          e.done = actions.payload.done;
+        };
+        return e;
+      })
     }
   }
 });
@@ -33,7 +43,8 @@ export const sliceTasks = createSlice({
 export const {
   writeStorageToStore,
   addTask,
-  clearCompletedTasks
+  clearCompletedTasks,
+  editTask
 } = sliceTasks.actions;
 
 export default sliceTasks.reducer;

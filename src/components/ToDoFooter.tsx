@@ -9,7 +9,7 @@ export default function ToDoFooter() {
 
   useEffect(() => {
     setItem(tasks.filter((e) => !e.done).length);
-  }, [tasks])
+  }, [tasks]);
 
   return (
     <div className={styles.footer}>
@@ -19,5 +19,5 @@ export default function ToDoFooter() {
       <Button text={'Completed'}/>
       <Button text={'Clear completed'}/>
     </div>
-  )
-}
+  );
+};

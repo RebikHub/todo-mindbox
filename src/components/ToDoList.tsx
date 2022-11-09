@@ -15,5 +15,5 @@ export default function ToDoList() {
         </li>
       ))}
     </ul>
-  )
-}
+  );
+};
