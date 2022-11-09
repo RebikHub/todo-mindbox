@@ -3,16 +3,16 @@ import { IItem, Items, Tasks } from "../interfaces/interfaces";
 
 const initialState: Items = {
   items: [
-    {
-      text: 'Do it task',
-      done: false,
-      id: '1'
-    },
-    {
-      text: 'Task is Done!',
-      done: true,
-      id: '2'
-    }
+    // {
+    //   text: 'Do it task',
+    //   done: false,
+    //   id: '0'
+    // },
+    // {
+    //   text: 'Task is Done!',
+    //   done: true,
+    //   id: '1'
+    // }
   ]
 };
 
