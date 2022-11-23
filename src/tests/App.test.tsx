@@ -4,7 +4,6 @@ import '@testing-library/jest-dom'
 import App from '../components/App';
 import sliceTasks from '../store/sliceTasks';
 import sliceDrop from '../store/sliceDrop';
-import sliceSort from '../store/sliceSort';
 import { addTask } from '../store/sliceTasks';
 import { Items } from '../interfaces/interfaces';
 import { configureStore, PreloadedState } from '@reduxjs/toolkit';
@@ -22,8 +21,7 @@ export function renderWithProviders(
       store = configureStore({
         reducer: {
           sliceTasks,
-          sliceDrop,
-          sliceSort
+          sliceDrop
         }
       }),
       ...renderOptions
